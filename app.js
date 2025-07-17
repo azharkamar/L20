@@ -9,21 +9,20 @@ const flash = require('connect-flash');
 const app = express();
 
 // Database connection
-const db = mysql.createPool({
-    host: 'kixcut.h.filess.io',
-    port: '3307',
-    user: 'c237_leftnoted',
-    password: '323fceefc2057b19a34f21a778a5b260cef51049',
-    database: 'c237_leftnoted',
-    connectionLimit: 5
+const db = mysql.createConnection({
+    host: 'c237-all.mysql.database.azure.com',
+    port: '3306',
+    user: 'c237admin',
+    password: 'c2372025!',
+    database: 'c237_123'
 });
 
-// db.connect((err) => {
-//     if (err) {
-//         throw err;
-//     }
-//     console.log('Connected to database');
-// });
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
